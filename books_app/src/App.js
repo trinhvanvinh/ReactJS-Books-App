@@ -8,6 +8,7 @@ class App extends Component {
   state={
     books:[],
     newBookData:{
+      id:'',
       title:'',
       rating:''
     },
@@ -42,6 +43,7 @@ class App extends Component {
       let {books} =this.state;
       books.push(respone.data);
       this.setState({books,newBookModal:false, newBookData:{
+        id:'',
         title:'',
         rating:''
       }});
@@ -120,6 +122,7 @@ class App extends Component {
 
     <h1>Books App</h1>
 
+ {/* add new book */}
     <Button className="my-3" color="primary" onClick={this.toggleNewBookModal.bind(this)} >Add a new book</Button>
     <Modal isOpen={this.state.newBookModal} toggle={this.toggleNewBookModal.bind(this)} >
       <ModalHeader toggle={this.toggleNewBookModal.bind(this)} >Modal Title</ModalHeader>
@@ -158,7 +161,7 @@ class App extends Component {
 
     </Modal>
 
-
+ {/* form edit book */}
     <Modal isOpen={this.state.editBookModal} toggle={this.toggleEditBookModal.bind(this)}>
         <ModalHeader toggle={this.toggleEditBookModal.bind(this)}>Edit a new book</ModalHeader>
         <ModalBody>
